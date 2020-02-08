@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Advanced Setting - Pokotarou Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Advanced Setting";
+    var mkdocs_page_input_path = "advanced_setting.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Pokotarou Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../basic_usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../getting_start/">Getting start</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lets_pokotarou/">Let's Pokotarou</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pokotarou_option/">Pokotarou option</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pokotarou_handler/">Pokotarou Handler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../converter/">Converter</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Advanced Setting</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#advanced-setting">Advanced Setting</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#grouping">Grouping</a></li>
+        
+            <li><a class="toctree-l3" href="#template">Template</a></li>
+        
+            <li><a class="toctree-l3" href="#return">Return</a></li>
+        
+            <li><a class="toctree-l3" href="#args">Args</a></li>
+        
+            <li><a class="toctree-l3" href="#const">Const</a></li>
+        
+            <li><a class="toctree-l3" href="#validation">Validation</a></li>
+        
+            <li><a class="toctree-l3" href="#disable-autoincrement">Disable Autoincrement</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../license/">License</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Pokotarou Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Advanced Setting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="advanced-setting">Advanced Setting</h1>
+<h2 id="grouping">Grouping</h2>
+<p>Grouping is useful function.
+Especially useful when setting multiple options.</p>
+<pre><code class="yml">Default:
+  Member:
+    grouping: 
+      # set columns you want to group
+      str_g: [&quot;name&quot;, &quot;remark&quot;]
+    col:
+      # you can use &quot;str_g&quot; at col
+      str_g: &lt;['yarh!']&gt;
+    option:
+      # also you can use &quot;str_g&quot; at option
+      str_g: [&quot;add_id&quot;]
+
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Member.all.pluck(:name) =&gt;  ['yarh!_0', 'yarh!_1', 'yarh!_2']
+</code></pre>
+
+<h2 id="template">Template</h2>
+<p>You can set template config by template' key.</p>
+<p>The template can be overwritten with the one set later.</p>
+<pre><code class="yml">template':
+  pref_template:
+    loop: 3
+    col:
+      pref_id: F|Pref
+      name: [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;]
+Pref:
+  Pref: 
+    loop: 3
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+
+Member1:
+  Member:
+    template: pref_template
+
+Member2:
+  Member:
+    template: pref_template
+    col:
+      name: [&quot;hogeta2&quot;, &quot;fuga2&quot;, &quot;pokota2&quot;]
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;, &quot;hogeta2&quot;, &quot;fuga2&quot;, &quot;pokota2&quot;]
+</code></pre>
+
+<h2 id="return">Return</h2>
+<p>You can set return value by return' key.</p>
+<pre><code class="yml">Default:
+  Pref: 
+    loop: 3
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+
+return': &lt;maked[:Default][:Pref][:name]&gt;
+
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby"> return_val = Pokotarou.execute(&quot;yml_filepath&quot;)
+ return_val =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<h2 id="args">Args</h2>
+<p>You can set args by hash.</p>
+<pre><code class="ruby">Pokotarou.set_args({ name:  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;] })
+Pokotarou.execute(&quot;yml_filepath&quot;)
+</code></pre>
+
+<pre><code class="yml">Default:
+  Pref: 
+    loop: 3
+    col:
+      name: &lt;args[:name]&gt;
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<h2 id="const">Const</h2>
+<p>You can set const variables by const' key.</p>
+<pre><code class="yml">const':
+  name: &quot;hoge&quot;
+Default:
+  Pref:
+    loop: 3
+  col:
+    name: &lt;const[:name]&gt;
+</code></pre>
+
+<h2 id="validation">Validation</h2>
+<p>Run validation when regist</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    validate: true
+</code></pre>
+
+<h2 id="disable-autoincrement">Disable Autoincrement</h2>
+<p>You can disable the autoincrement setting
+If you disable the setting, you can register id data prepared by yourself</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    autoincrement: false
+    col:
+      id: [100, 101, 102]
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [100, 101, 102]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../license/" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../converter/" class="btn btn-neutral" title="Converter"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../converter/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../license/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

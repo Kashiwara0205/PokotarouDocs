@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Let's Pokotarou - Pokotarou Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Let's Pokotarou";
+    var mkdocs_page_input_path = "lets_pokotarou.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Pokotarou Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../basic_usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../getting_start/">Getting start</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Let's Pokotarou</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#lets-pokotarou">Let's Pokotarou</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#register-seed-data-by-yml">Register seed data by yml</a></li>
+        
+            <li><a class="toctree-l3" href="#omitt-loop">Omitt loop</a></li>
+        
+            <li><a class="toctree-l3" href="#array">Array</a></li>
+        
+            <li><a class="toctree-l3" href="#maked-hash">Maked hash</a></li>
+        
+            <li><a class="toctree-l3" href="#makedcol-hash">MakedCol hash</a></li>
+        
+            <li><a class="toctree-l3" href="#foreign-key">Foreign key</a></li>
+        
+            <li><a class="toctree-l3" href="#seeting-columns">Seeting Columns</a></li>
+        
+            <li><a class="toctree-l3" href="#run-ruby-code-in-yml">Run ruby code in yml</a></li>
+        
+            <li><a class="toctree-l3" href="#add-method">Add Method</a></li>
+        
+            <li><a class="toctree-l3" href="#multiple-blocks">Multiple blocks</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pokotarou_option/">Pokotarou option</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pokotarou_handler/">Pokotarou Handler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../converter/">Converter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../advanced_setting/">Advanced Setting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../license/">License</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Pokotarou Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Let's Pokotarou</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="lets-pokotarou">Let's Pokotarou</h1>
+<p>By the end of reading this document, you will be a pokotarou master...</p>
+<h2 id="register-seed-data-by-yml">Register seed data by yml</h2>
+<p>If you are troublesome to set columns data in yml.<br />
+you don't set columns data.<br />
+Pokotarou will register automatically prepared data.</p>
+<p>Let's see the following example!</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+</code></pre>
+
+<p>This yml file register automatically prepared data <strong>three times</strong>.</p>
+<p>Offcourse, you can set seed data by yourself!</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      name: &quot;Hokkaido&quot;
+</code></pre>
+
+<h2 id="omitt-loop">Omitt loop</h2>
+<p>If you are troublesome to set loop number in yml.<br />
+you don't set loop number.<br />
+If there is nothing lopp number, Pokotarou convert loop size to 1 automatically.  </p>
+<pre><code class="yml">Default:
+  Pref: 
+    col:
+      name: [&quot;Hokkaido&quot;]
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.first.name =&gt; &quot;Hokkaido&quot;
+</code></pre>
+
+<h2 id="array">Array</h2>
+<p>You can set array data in yml.<br />
+Array data is registerd one by one.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<p>Don't worry if the array exceeds the number of loops.  <br />
+Circulates automatically.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 6
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<h2 id="maked-hash">Maked hash</h2>
+<p>'maked' is bery userfule function.
+It is hash and accumulate data registed in the past. </p>
+<p>For example, in the case of below, reffer name of Pref in Default block by maked.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 2
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+  Member:
+    loop: 2
+    col:
+      name: &lt;maked[:Default][:Pref][:name]&gt;
+</code></pre>
+
+<p><strong>maked hash structure</strong></p>
+<pre><code>{
+  Block1:{
+    Model:{
+      col1:xxx,
+      col2:xxx
+      col3:xxx
+    }
+  },
+
+  Block2:{
+    Model:{
+      col1:xxx,
+      col2:xxx
+      col3:xxx
+    }
+  },
+}
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+</code></pre>
+
+<h2 id="makedcol-hash">MakedCol hash</h2>
+<p>'maked_col' is like 'maked'
+but you can write without 'block key'
+Let's look following example.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 2
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+  Member:
+    loop: 2
+    col:
+      name: &lt;maked_col[:Pref][:name]&gt;
+</code></pre>
+
+<p><strong>maked_col structure</strong></p>
+<pre><code>{
+  Model:{
+    col1:xxx(merged array from each blocks),
+    col2:xxx,
+    col3:xxx
+  }
+}
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+</code></pre>
+
+<h2 id="foreign-key">Foreign key</h2>
+<p><strong>※ If you set association(belongs_to, has_many...), Pokotarou automatically register foreign keys</strong>
+{ F|Model } means that Model.all.pluck(:id).
+Let's see the following file. <br />
+Member model record is registerd with pref_id(foregin key).</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+  Member:
+    loop: 3
+    col:
+      pref_id: F|Pref
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [1, 2, 3]
+Member.all.pluck(:pref_id) =&gt; [1, 2, 3]
+</code></pre>
+
+<h2 id="seeting-columns">Seeting Columns</h2>
+<p>If you want to register data from each model.
+you can write following example.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      name: [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+  Member:
+    loop: 3
+    col:
+      pref_id: C|Pref|id
+      name: C|Pref|name
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [1, 2, 3]
+Member.all.pluck(:pref_id) =&gt; [1, 2, 3]
+Member.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+</code></pre>
+
+<h2 id="run-ruby-code-in-yml">Run ruby code in yml</h2>
+<p>'&lt; &gt;' means expression expansion.
+You can run ruby code in '&lt; &gt;'.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      name: &lt;[&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]&gt;
+      created_at: &lt;Date.parse('1997/02/05')&gt;
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+Pref.all.pluck(:created_at) =&gt; [1997/02/05, 1997/02/05, 1997/02/05]
+
+</code></pre>
+
+<h2 id="add-method">Add Method</h2>
+<p>If you want to add method which run in yml.
+You can add method.<br />
+Let's see the follwoing example.</p>
+<p>First, setting yml file.<br />
+I want to run pref_name method.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    col:
+      # this is ruby method
+      name: &lt;pref_name&gt;
+</code></pre>
+
+<p>setting the following ruby file</p>
+<pre><code class="ruby">def pref_name
+  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+end
+</code></pre>
+
+<p>and run the following code in seeds.rb.</p>
+<pre><code class="ruby">Pokotarou.import(&quot;./method_filepath&quot;)
+Pokotarou.execute(&quot;./config_filepath&quot;)
+</code></pre>
+
+<p><strong>Pokotarou.import</strong> means that add method whch be able to run in yml.</p>
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+
+</code></pre>
+
+<h2 id="multiple-blocks">Multiple blocks</h2>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+Default2:
+  Pref:
+    loop: 3
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.count =&gt; 6
+
+</code></pre>
+
+<p>and, You can change the name of the block</p>
+<pre><code class="yml">Hoge:
+  Pref:
+    loop: 3
+Fuga:
+  Pref:
+    loop: 3
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.count =&gt; 6
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pokotarou_option/" class="btn btn-neutral float-right" title="Pokotarou option">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../getting_start/" class="btn btn-neutral" title="Getting start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../getting_start/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../pokotarou_option/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
