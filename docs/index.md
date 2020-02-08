@@ -1,8 +1,5 @@
 # Home
 
-![s_PokotarouLogo](https://user-images.githubusercontent.com/52961642/62843884-46f6c700-bcf8-11e9-8267-b9fad8f34085.png)
-
-
 __Pokotarou__ is convinient Mysql seeder of Ruby on Rails.
 
 __Easy to use!!__  
