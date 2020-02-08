@@ -21,4 +21,4 @@ If you use __Pokotarou__ about following table.
 |created_at|datetime|NO|
 |updated_at|datetime|NO|
 
-__Pokotarou__ can register in 0.41s on average.
+__Pokotarou__ can register 10,000 records in 0.41s on average.
