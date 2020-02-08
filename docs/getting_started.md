@@ -1,4 +1,4 @@
-# Getting start
+# Getting started
 
 Please add this line to your Rails application's Gemfile
 

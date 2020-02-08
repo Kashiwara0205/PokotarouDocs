@@ -3,7 +3,7 @@ theme: readthedocs
 nav:
 - 'index.md'
 - 'basic_usage.md'
-- 'getting_start.md'
+- 'getting_started.md'
 - 'lets_pokotarou.md'
 - 'pokotarou_option.md'
 - 'pokotarou_handler.md'
