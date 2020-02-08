@@ -1,2 +1,12 @@
 site_name: Pokotarou Docs
 theme: readthedocs
+nav:
+- 'index.md'
+- 'basic_usage.md'
+- 'getting_start.md'
+- 'lets_pokotarou.md'
+- 'pokotarou_option.md'
+- 'pokotarou_handler.md'
+- 'converter.md'
+- 'advanced_setting.md'
+- 'license.md'

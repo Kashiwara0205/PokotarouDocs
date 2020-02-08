@@ -55,14 +55,16 @@ In the following example, delete col config
   Pokotarou.execute(handler.get_data)
 ```
 
-## pipeline
+## Pipeline Execute
 Pokotarou can run by pipeline.  
-Pokotarou.pipleine_execute means that continuous execution of __Pokotarou.execute__.
+Pokotarou.pipleine_execute means that continuous execution of __Pokotarou.execute__.  
+You can set filepath, change_data, args parameter.
 
 ```ruby
 Pokotarou.pipleine_execute([{
     filepath: "./yml_filepath", 
     change_data: { Default: { Pref: { name: ["a", "b", "c"] } } },
+    args: { created_at: [DateTime.now] }
   },{
     filepath: "./yml_filepath", 
   }])
