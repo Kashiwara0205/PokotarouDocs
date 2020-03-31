@@ -29,23 +29,6 @@ Default:
       name: "Hokkaido"
 ```
 
-## Omitt loop
-If you are troublesome to set loop number in yml.  
-you don't set loop number.  
-If there is nothing lopp number, Pokotarou convert loop size to 1 automatically.  
-
-```yml
-Default:
-  Pref: 
-    col:
-      name: ["Hokkaido"]
-```
-
-__Result__
-```ruby
-Pref.first.name => "Hokkaido"
-```
-
 ## Array
 
 You can set array data in yml.  

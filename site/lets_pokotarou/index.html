@@ -88,7 +88,9 @@
         
             <li><a class="toctree-l3" href="#run-ruby-code-in-yml">Run ruby code in yml</a></li>
         
-            <li><a class="toctree-l3" href="#add-method">Add Method</a></li>
+            <li><a class="toctree-l3" href="#importrequire-ruby-file-in-pokotarou">Import(require ruby file in pokotarou)</a></li>
+        
+            <li><a class="toctree-l3" href="#import-in-yml">Import in yml</a></li>
         
             <li><a class="toctree-l3" href="#multiple-blocks">Multiple blocks</a></li>
         
@@ -121,6 +123,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../p_tool/">Ptool(Pokotarou tool)</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -349,8 +356,8 @@ Pref.all.pluck(:created_at) =&gt; [1997/02/05, 1997/02/05, 1997/02/05]
 
 </code></pre>
 
-<h2 id="add-method">Add Method</h2>
-<p>If you want to add method which run in yml.
+<h2 id="importrequire-ruby-file-in-pokotarou">Import(require ruby file in pokotarou)</h2>
+<p>If you want to require ruby file and add method which run in yml.
 You can add method.<br />
 Let's see the follwoing example.</p>
 <p>First, setting yml file.<br />
@@ -374,10 +381,30 @@ end
 Pokotarou.execute(&quot;./config_filepath&quot;)
 </code></pre>
 
-<p><strong>Pokotarou.import</strong> means that add method whch be able to run in yml.</p>
+<p>or</p>
+<p>you can also use array</p>
+<pre><code class="ruby">Pokotarou.import([&quot;./method_filepath&quot;])
+Pokotarou.execute(&quot;./config_filepath&quot;)
+</code></pre>
+
+<p><strong>Pokotarou.import</strong> means that require which run in pokotarou.</p>
 <p><strong>Result</strong></p>
 <pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 
+</code></pre>
+
+<h2 id="import-in-yml">Import in yml</h2>
+<p>You can import in pokotarou yml file.</p>
+<pre><code class="yml">import':
+  - /method_filepath
+  - /method_filepath2
+
+Default:
+  Pref:
+    loop: 3
+    col:
+      # you can use imported method
+      name: &lt;pref_name&gt;
 </code></pre>
 
 <h2 id="multiple-blocks">Multiple blocks</h2>
