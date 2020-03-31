@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Pokotarou Handler - Pokotarou Docs</title>
+  <title>Pipeline Execute - Pokotarou Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Pokotarou Handler";
-    var mkdocs_page_input_path = "pokotarou_handler.md";
+    var mkdocs_page_name = "Pipeline Execute";
+    var mkdocs_page_input_path = "pipeline_execute.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,23 +73,9 @@
     <a class="" href="../pokotarou_option/">Pokotarou option</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Pokotarou Handler</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#pokotarou-handler">Pokotarou Handler</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#change-setting-yml">Change setting yml</a></li>
-        
-            <li><a class="toctree-l3" href="#delete-setting-yml">Delete setting yml</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../pokotarou_handler/">Pokotarou Handler</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -102,9 +88,15 @@
     <a class="" href="../advanced_setting/">Advanced Setting</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="current" href="./">Pipeline Execute</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#pipeline-execute">Pipeline Execute</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -134,7 +126,7 @@
     
       
     
-    <li>Pokotarou Handler</li>
+    <li>Pipeline Execute</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -144,44 +136,47 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="pokotarou-handler">Pokotarou Handler</h1>
-<p>If you want to make test data dynamically, you should use <strong>PokotarouHandler</strong>.</p>
-<p>When you use <strong>PokotarouHandler</strong>, can update pokotarou's parameter  in ruby code.</p>
-<h2 id="change-setting-yml">Change setting yml</h2>
-<p>In the following example, the number of loops is changed</p>
-<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./config_filepath&quot;)
-  # change loop config
-  handler.change_loop(:Default, :Pref, 6)
-  Pokotarou.execute(handler.get_data)
+                <h1 id="pipeline-execute">Pipeline Execute</h1>
+<p>Pokotarou can run by pipeline.<br />
+Pokotarou.pipleine_execute means that continuous execution of <strong>Pokotarou.execute</strong>.<br />
+You can set filepath, change_data, args parameter.</p>
+<pre><code class="ruby">Pokotarou.pipeline_execute([{
+    filepath: &quot;./yml_filepath&quot;, 
+    change_data: { Default: { Pref: { name: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;] } } },
+    args: { created_at: [DateTime.now] }
+  },{
+    filepath: &quot;./yml_filepath&quot;, 
+  }])
 </code></pre>
 
-<p>In the following example, seed data is changed</p>
-<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
-  # change seed data config number
-  handler.change_seed(:Default, :Pref, :name, [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
-  Pokotarou.execute(handler.get_data)
+<p>return val created in the previous step can get by <strong>args[:passed_return_val]</strong> in the next step.</p>
+<pre><code class="yml"># First step
+Default:
+  Pref: 
+    loop: 3
+    col:
+      name: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+
+return': &lt;[&quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]&gt;
 </code></pre>
 
-<h2 id="delete-setting-yml">Delete setting yml</h2>
-<p>In the following example, delete block config</p>
-<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
-  # delete model config in parameter
-  handler.delete_block(:Default)
-  Pokotarou.execute(handler.get_data)
+<pre><code class="yml"># Second step
+Default:
+  Pref: 
+    loop: 3
+    col:
+      name: &lt;args[:passed_return_val]&gt;
 </code></pre>
 
-<p>In the following example, delete model config</p>
-<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
-  # delete model config in parameter
-  handler.delete_model(:Default, :Pref)
-  Pokotarou.execute(handler.get_data)
+<pre><code class="ruby">Pokotarou.pipeline_execute([{
+    filepath: &quot;./first_step_yml_filepath&quot;, 
+  },{
+    filepath: &quot;./second_step_yml_filepath&quot;, 
+  }])
 </code></pre>
 
-<p>In the following example, delete col config</p>
-<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
-  # delete col config in parameter
-  handler.delete_col(:Default, :Pref, :name)
-  Pokotarou.execute(handler.get_data)
+<p><strong>Result</strong></p>
+<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]
 </code></pre>
               
             </div>
@@ -190,10 +185,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../converter/" class="btn btn-neutral float-right" title="Converter">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../license/" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../pokotarou_option/" class="btn btn-neutral" title="Pokotarou option"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../advanced_setting/" class="btn btn-neutral" title="Advanced Setting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +214,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../pokotarou_option/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../advanced_setting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../converter/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../license/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

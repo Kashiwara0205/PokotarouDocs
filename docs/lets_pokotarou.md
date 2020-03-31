@@ -233,8 +233,8 @@ Pref.all.pluck(:created_at) => [1997/02/05, 1997/02/05, 1997/02/05]
 
 ```
 
-## Add Method
-If you want to add method which run in yml.
+## Import(require ruby file in pokotarou)
+If you want to require ruby file and add method which run in yml.
 You can add method.  
 Let's see the follwoing example.
 
@@ -265,13 +265,41 @@ Pokotarou.import("./method_filepath")
 Pokotarou.execute("./config_filepath")
 ```
 
-__Pokotarou.import__ means that add method whch be able to run in yml.
+or
+
+you can also use array
+
+```ruby
+Pokotarou.import(["./method_filepath"])
+Pokotarou.execute("./config_filepath")
+```
+
+
+__Pokotarou.import__ means that require which run in pokotarou.
 
 __Result__
 ```ruby
 Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 
 ```
+
+## Import in yml
+
+You can import in pokotarou yml file.
+
+```yml
+import':
+  - /method_filepath
+  - /method_filepath2
+
+Default:
+  Pref:
+    loop: 3
+    col:
+      # you can use imported method
+      name: <pref_name>
+```
+
 
 ## Multiple blocks
 
