@@ -74,8 +74,6 @@
         
             <li><a class="toctree-l3" href="#register-seed-data-by-yml">Register seed data by yml</a></li>
         
-            <li><a class="toctree-l3" href="#omitt-loop">Omitt loop</a></li>
-        
             <li><a class="toctree-l3" href="#array">Array</a></li>
         
             <li><a class="toctree-l3" href="#maked-hash">Maked hash</a></li>
@@ -186,20 +184,6 @@ Pokotarou will register automatically prepared data.</p>
     loop: 3
     col:
       name: &quot;Hokkaido&quot;
-</code></pre>
-
-<h2 id="omitt-loop">Omitt loop</h2>
-<p>If you are troublesome to set loop number in yml.<br />
-you don't set loop number.<br />
-If there is nothing lopp number, Pokotarou convert loop size to 1 automatically.  </p>
-<pre><code class="yml">Default:
-  Pref: 
-    col:
-      name: [&quot;Hokkaido&quot;]
-</code></pre>
-
-<p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.first.name =&gt; &quot;Hokkaido&quot;
 </code></pre>
 
 <h2 id="array">Array</h2>
