@@ -38,7 +38,7 @@ Default:
   Pref: 
     loop: 3
     col:
-      created_at: <Ptool.created_at(10, "1997-02-05", true)>
+      created_at: <Ptool.gen_created_at(10, "1997-02-05", true)>
 ```
 
 ## gen_updated_at
@@ -55,6 +55,6 @@ Default:
   Pref: 
     loop: 3
     col:
-      created_at: <Ptool.created_at(10, "1997-02-05", true)>
+      created_at: <Ptool.gen_created_at(10, "1997-02-05", true)>
       updated_at: <Ptool.gen_updated_at(maked_col[:Pref][:created_at], true)>
 ```
