@@ -144,3 +144,21 @@ __Result__
 ```ruby
 Pref.all.pluck(:id) =>  [100, 101, 102]
 ```
+
+## Enable Randomincrement
+
+You can enable the randomincrement setting
+this mode shuffled autoincrement array, and register it.
+
+```yml
+Default:
+  Pref:
+    loop: 3
+    randomincrement: true
+```
+
+__Result__
+```ruby
+# The following results change from run to run
+Pref.order(:name).pluck(:id) =>  [3, 2, 1]
+```

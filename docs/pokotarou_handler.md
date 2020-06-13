@@ -13,7 +13,7 @@ In the following example, the number of loops is changed
   handler = Pokotarou.gen_handler("./config_filepath")
   # change loop config
   handler.change_loop(:Default, :Pref, 6)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 ```
 
 
@@ -23,7 +23,7 @@ In the following example, seed data is changed
   handler = Pokotarou.gen_handler("./yml_filepath")
   # change seed data config number
   handler.change_seed(:Default, :Pref, :name, ["a", "b", "c"])
-  Pokotarou.execute(handler.get_data)
+  handler.make
 ```
 
 ## Delete setting yml
@@ -34,7 +34,7 @@ In the following example, delete block config
   handler = Pokotarou.gen_handler("./yml_filepath")
   # delete model config in parameter
   handler.delete_block(:Default)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 ```
 
 In the following example, delete model config
@@ -43,7 +43,7 @@ In the following example, delete model config
   handler = Pokotarou.gen_handler("./yml_filepath")
   # delete model config in parameter
   handler.delete_model(:Default, :Pref)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 ```
 
 In the following example, delete col config
@@ -52,5 +52,26 @@ In the following example, delete col config
   handler = Pokotarou.gen_handler("./yml_filepath")
   # delete col config in parameter
   handler.delete_col(:Default, :Pref, :name)
-  Pokotarou.execute(handler.get_data)
+  handler.make
+```
+
+## Set autoincrement
+
+can change autoincrement status
+
+```ruby
+  handler = Pokotarou.gen_handler("./yml_filepath")
+  handler.set_autoincrement(:Default, :Pref, :false)
+  handler.change_seed(:Default, :Pref, :id, [5, 6, 7])
+  handler.make
+```
+
+## Set randomincrement
+
+can change randomincrement status
+
+```ruby
+  handler = Pokotarou.gen_handler("./yml_filepath")
+  handler.set_randomincrement(:Default, :Pref, :true)
+  handler.make
 ```
