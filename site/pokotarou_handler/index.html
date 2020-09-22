@@ -86,6 +86,10 @@
         
             <li><a class="toctree-l3" href="#delete-setting-yml">Delete setting yml</a></li>
         
+            <li><a class="toctree-l3" href="#set-autoincrement">Set autoincrement</a></li>
+        
+            <li><a class="toctree-l3" href="#set-randomincrement">Set randomincrement</a></li>
+        
         </ul>
     
 
@@ -157,14 +161,14 @@
 <pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./config_filepath&quot;)
   # change loop config
   handler.change_loop(:Default, :Pref, 6)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 </code></pre>
 
 <p>In the following example, seed data is changed</p>
 <pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
   # change seed data config number
   handler.change_seed(:Default, :Pref, :name, [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
-  Pokotarou.execute(handler.get_data)
+  handler.make
 </code></pre>
 
 <h2 id="delete-setting-yml">Delete setting yml</h2>
@@ -172,21 +176,36 @@
 <pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
   # delete model config in parameter
   handler.delete_block(:Default)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 </code></pre>
 
 <p>In the following example, delete model config</p>
 <pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
   # delete model config in parameter
   handler.delete_model(:Default, :Pref)
-  Pokotarou.execute(handler.get_data)
+  handler.make
 </code></pre>
 
 <p>In the following example, delete col config</p>
 <pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
   # delete col config in parameter
   handler.delete_col(:Default, :Pref, :name)
-  Pokotarou.execute(handler.get_data)
+  handler.make
+</code></pre>
+
+<h2 id="set-autoincrement">Set autoincrement</h2>
+<p>can change autoincrement status</p>
+<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
+  handler.set_autoincrement(:Default, :Pref, :false)
+  handler.change_seed(:Default, :Pref, :id, [5, 6, 7])
+  handler.make
+</code></pre>
+
+<h2 id="set-randomincrement">Set randomincrement</h2>
+<p>can change randomincrement status</p>
+<pre><code class="ruby">  handler = Pokotarou.gen_handler(&quot;./yml_filepath&quot;)
+  handler.set_randomincrement(:Default, :Pref, :true)
+  handler.make
 </code></pre>
               
             </div>

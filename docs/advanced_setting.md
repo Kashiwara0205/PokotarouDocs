@@ -60,6 +60,39 @@ __Result__
 Member.all.pluck(:name) =>  ["hogeta", "fuga", "pokota", "hogeta2", "fuga2", "pokota2"]
 ```
 
+You can also set template by file path
+
+template_file1 yml
+
+```yml
+PrefTemplate:
+  loop: 3
+  col:
+    name: ["hogeta", "fuga", "pokota"]
+```
+
+template_file2 yml
+
+```yml
+MemberTemplate:
+  loop: 3
+  col:
+    name: ["t1", "t2", "t3"]
+```
+
+Pokotarou yml
+
+```yml
+template_path':
+  - ./template_file1
+  - ./template_file2
+Pref:
+  Pref: 
+    template: PrefTemplate
+  Member:
+    template: MemberTemplate
+```
+
 ## Return
 You can set return value by return' key.
 

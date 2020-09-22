@@ -106,6 +106,8 @@
         
             <li><a class="toctree-l3" href="#disable-autoincrement">Disable Autoincrement</a></li>
         
+            <li><a class="toctree-l3" href="#enable-randomincrement">Enable Randomincrement</a></li>
+        
         </ul>
     
 
@@ -277,6 +279,20 @@ If you disable the setting, you can register id data prepared by yourself</p>
 
 <p><strong>Result</strong></p>
 <pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [100, 101, 102]
+</code></pre>
+
+<h2 id="enable-randomincrement">Enable Randomincrement</h2>
+<p>You can enable the randomincrement setting
+this mode shuffled autoincrement array, and register it.</p>
+<pre><code class="yml">Default:
+  Pref:
+    loop: 3
+    randomincrement: true
+</code></pre>
+
+<p><strong>Result</strong></p>
+<pre><code class="ruby"># The following results change from run to run
+Pref.order(:name).pluck(:id) =&gt;  [3, 2, 1]
 </code></pre>
               
             </div>
