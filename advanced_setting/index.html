@@ -213,6 +213,32 @@ Member2:
 <pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;, &quot;hogeta2&quot;, &quot;fuga2&quot;, &quot;pokota2&quot;]
 </code></pre>
 
+<p>You can also set template by file path</p>
+<p>template_file1 yml</p>
+<pre><code class="yml">PrefTemplate:
+  loop: 3
+  col:
+    name: [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;]
+</code></pre>
+
+<p>template_file2 yml</p>
+<pre><code class="yml">MemberTemplate:
+  loop: 3
+  col:
+    name: [&quot;t1&quot;, &quot;t2&quot;, &quot;t3&quot;]
+</code></pre>
+
+<p>Pokotarou yml</p>
+<pre><code class="yml">template_path':
+  - ./template_file1
+  - ./template_file2
+Pref:
+  Pref: 
+    template: PrefTemplate
+  Member:
+    template: MemberTemplate
+</code></pre>
+
 <h2 id="return">Return</h2>
 <p>You can set return value by return' key.</p>
 <pre><code class="yml">Default:
