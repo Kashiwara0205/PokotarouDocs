@@ -25,9 +25,47 @@ __Result__
 Member.all.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']
 ```
 
+## Preset
+
+You can set preset_path.  
+preset-data can be created using this function.
+
+pref.preset.yml
+```yml
+PrefPreset:
+  Pref: 
+    loop: 3
+    col:
+      name: ["北海道", "青森県", "岩手県"]
+```
+
+test_data.yml
+```yml
+
+preset_path':
+  - ./pref.preset.yml
+
+Default:
+  Member:
+    loop: 1
+    col:
+      pref_id: F|Pref
+      name: "hoge"
+```
+
+__Result__
+```ruby
+Pokotarou.execute("./test_data.yml")
+Pref.all.pluck(:name) =>  ["北海道", "青森県", "岩手県"]
+Member.all.pluck(:name) =>  ["hoge"]
+```
+
+
 ## Template
 
 You can set template config by template' key.
+
+This feature is similar to inheritance.
 
 The template can be overwritten with the one set later.
 
@@ -135,6 +173,26 @@ __Result__
 Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 ```
 
+## Let
+
+You can define variables by using let key
+
+```yml
+Default:
+  Pref: 
+    loop: 3
+    col:
+      name: ["北海道", "青森県", "岩手県"]
+
+Default2:
+  Pref: 
+    loop: 3
+    let:
+      def1_names: <maked[:Default][:Pref][:name]>
+    col:
+      name: <let[:def1_names]>
+```
+
 ## Const
 You can set const variables by const' key.
 
@@ -146,17 +204,6 @@ Default:
     loop: 3
   col:
     name: <const[:name]>
-```
-
-## Validation
-
-Run validation when regist
-
-```yml
-Default:
-  Pref:
-    loop: 3
-    validate: true
 ```
 
 ## Disable Autoincrement
