@@ -30,6 +30,9 @@ Member.all.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']
 You can set preset_path.  
 preset-data can be created using this function.
 
+※ If you use this function, then You must use different block name in each yml file.
+Cannot be used at the same time as the function of const' and template'.
+
 pref.preset.yml
 ```yml
 PrefPreset:
@@ -171,26 +174,6 @@ Default:
 __Result__
 ```ruby
 Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
-```
-
-## Let
-
-You can define variables by using let key
-
-```yml
-Default:
-  Pref: 
-    loop: 3
-    col:
-      name: ["北海道", "青森県", "岩手県"]
-
-Default2:
-  Pref: 
-    loop: 3
-    let:
-      def1_names: <maked[:Default][:Pref][:name]>
-    col:
-      name: <let[:def1_names]>
 ```
 
 ## Const
