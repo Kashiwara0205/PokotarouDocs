@@ -31,7 +31,7 @@ You can set preset_path.
 preset-data can be created using this function.
 
 ※ If you use this function, then You must use different block name in each yml file.
-Cannot be used at the same time as the function of const' and template'.
+Cannot be used at the same time as the function of const', template' and import_path'.
 
 pref.preset.yml
 ```yml
