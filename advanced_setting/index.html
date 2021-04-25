@@ -102,8 +102,6 @@
         
             <li><a class="toctree-l3" href="#args">Args</a></li>
         
-            <li><a class="toctree-l3" href="#let">Let</a></li>
-        
             <li><a class="toctree-l3" href="#const">Const</a></li>
         
             <li><a class="toctree-l3" href="#disable-autoincrement">Disable Autoincrement</a></li>
@@ -188,6 +186,8 @@ Especially useful when setting multiple options.</p>
 <h2 id="preset">Preset</h2>
 <p>You can set preset_path.<br />
 preset-data can be created using this function.</p>
+<p>※ If you use this function, then You must use different block name in each yml file.
+Cannot be used at the same time as the function of const' and template'.</p>
 <p>pref.preset.yml</p>
 <pre><code class="yml">PrefPreset:
   Pref: 
@@ -304,23 +304,6 @@ Pokotarou.execute(&quot;yml_filepath&quot;)
 
 <p><strong>Result</strong></p>
 <pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
-</code></pre>
-
-<h2 id="let">Let</h2>
-<p>You can define variables by using let key</p>
-<pre><code class="yml">Default:
-  Pref: 
-    loop: 3
-    col:
-      name: [&quot;北海道&quot;, &quot;青森県&quot;, &quot;岩手県&quot;]
-
-Default2:
-  Pref: 
-    loop: 3
-    let:
-      def1_names: &lt;maked[:Default][:Pref][:name]&gt;
-    col:
-      name: &lt;let[:def1_names]&gt;
 </code></pre>
 
 <h2 id="const">Const</h2>
