@@ -1,58 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/basic_usage/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/pokotarou_v2/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/getting_started/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/lets_pokotarou/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/pokotarou_option/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/pokotarou_handler/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/converter/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/advanced_setting/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/pipeline_execute/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2021-04-25</lastmod>
+     <loc>/p_tool/</loc>
+     <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+    <url>
+     <loc>/license/</loc>
+     <lastmod>2021-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
 </urlset>

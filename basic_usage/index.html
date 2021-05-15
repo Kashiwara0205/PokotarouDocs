@@ -8,24 +8,24 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Basic Usage - Pokotarou Docs</title>
+  <title>Basic usage - Pokotarou Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../custom.css" rel="stylesheet">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Basic Usage";
+    var mkdocs_page_name = "Basic usage";
     var mkdocs_page_input_path = "basic_usage.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/basic_usage/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +39,7 @@
         <a href=".." class="icon icon-home"> Pokotarou Docs</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -55,7 +55,7 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Basic Usage</a>
+    <a class="current" href="./">Basic usage</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#basic-usage">Basic Usage</a></li>
@@ -66,12 +66,17 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../pokotarou_v2/">Pokotarou v2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../getting_started/">Getting started</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../lets_pokotarou/">Let's Pokotarou</a>
+    <a class="" href="../lets_pokotarou/">Lets pokotarou</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -81,7 +86,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pokotarou_handler/">Pokotarou Handler</a>
+    <a class="" href="../pokotarou_handler/">Pokotarou handler</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -91,17 +96,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../advanced_setting/">Advanced Setting</a>
+    <a class="" href="../advanced_setting/">Advanced setting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../p_tool/">Ptool(Pokotarou tool)</a>
+    <a class="" href="../p_tool/">P tool</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -131,7 +136,7 @@
     
       
     
-    <li>Basic Usage</li>
+    <li>Basic usage</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -198,10 +203,14 @@ In my case, made yml file in db directory and named file <strong>pref_data</stro
 </code></pre>
 
 <p>and write following ruby code in seeds.rb.</p>
-<pre><code class="ruby">Pokotarou.execute(&quot;./db/pref_data.yml&quot;)
+<pre><code class="ruby">Pokotarou.make(&quot;./db/pref_data.yml&quot;)
+
+or 
+
+Pokotarou::V2.new(&quot;./db/pref_data.yml&quot;).make
 </code></pre>
 
-<p>and execute following command!!!!!  </p>
+<p>and execute following command</p>
 <pre><code class="bash">$ rails db:seed
 </code></pre>
 
@@ -217,7 +226,7 @@ Pref.all.count =&gt; 3
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pokotarou_v2/" class="btn btn-neutral float-right" title="Pokotarou v2">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -234,12 +243,12 @@ Pref.all.count =&gt; 3
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -249,13 +258,11 @@ Pref.all.count =&gt; 3
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../pokotarou_v2/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>

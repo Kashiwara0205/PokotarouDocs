@@ -1,0 +1,264 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Home\n\n\n\n\nPokotarou\n is convinient Mysql seeder of Ruby on Rails.\n\n\nEasy to use!!\n\nJust use yml file.\n\nvery very very simple!\n\nYou dont' have to write ruby program about seed data!\n\n\nFast speed!!\n\n\nPokotarou\n is fast seeder.\n\nBecause contains \nActiverecord-import\n.\n\nso, always run bulk insert when execute rails db:seed command!\n\n\nIf you use \nPokotarou\n about following table.\n\n\n\n\n\n\n\n\nField\n\n\nType\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\nid\n\n\nbigint(20)\n\n\nNO\n\n\n\n\n\n\nname\n\n\nvarchar(255)\n\n\nYES\n\n\n\n\n\n\ncreated_at\n\n\ndatetime\n\n\nNO\n\n\n\n\n\n\nupdated_at\n\n\ndatetime\n\n\nNO\n\n\n\n\n\n\n\n\nPokotarou\n can register 10,000 records in 0.41s on average.",
+            "title": "Home"
+        },
+        {
+            "location": "/#home",
+            "text": "Pokotarou  is convinient Mysql seeder of Ruby on Rails.  Easy to use!! \nJust use yml file. \nvery very very simple! \nYou dont' have to write ruby program about seed data!  Fast speed!!  Pokotarou  is fast seeder. \nBecause contains  Activerecord-import . \nso, always run bulk insert when execute rails db:seed command!  If you use  Pokotarou  about following table.     Field  Type  NULL      id  bigint(20)  NO    name  varchar(255)  YES    created_at  datetime  NO    updated_at  datetime  NO     Pokotarou  can register 10,000 records in 0.41s on average.",
+            "title": "Home"
+        },
+        {
+            "location": "/basic_usage/",
+            "text": "Basic Usage\n\n\nJust make yml file.\n\nIf you register data to following prefecture data. \n\n\nprefecture table\n\n\n\n\n\n\n\n\nField\n\n\nType\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\nid\n\n\nbigint(20)\n\n\nNO\n\n\n\n\n\n\nname\n\n\nvarchar(255)\n\n\nYES\n\n\n\n\n\n\ncreated_at\n\n\ndatetime\n\n\nNO\n\n\n\n\n\n\nupdated_at\n\n\ndatetime\n\n\nNO\n\n\n\n\n\n\n\n\nprefecture model\n\n\n\n\n\n\n\n\nModel\n\n\n\n\n\n\n\n\n\n\nPref\n\n\n\n\n\n\n\n\nFirst, Please make following yml file your favorite directory of rails project.\n\nThe file name can be anything.\n\nIn my case, made yml file in db directory and named file \npref_data\n.  \n\n\nDefault:\n  Pref:\n    loop: 3\n\n\n\n\nand write following ruby code in seeds.rb.\n\n\nPokotarou.make(\"./db/pref_data.yml\")\n\nor \n\nPokotarou::V2.new(\"./db/pref_data.yml\").make\n\n\n\n\nand execute following command\n\n\n$ rails db:seed\n\n\n\n\nprefecture data is registerd your db.\nLet's check with the following code.\n\n\n# You have to get 3\nPref.all.count => 3",
+            "title": "Basic usage"
+        },
+        {
+            "location": "/basic_usage/#basic-usage",
+            "text": "Just make yml file. \nIf you register data to following prefecture data.   prefecture table     Field  Type  NULL      id  bigint(20)  NO    name  varchar(255)  YES    created_at  datetime  NO    updated_at  datetime  NO     prefecture model     Model      Pref     First, Please make following yml file your favorite directory of rails project. \nThe file name can be anything. \nIn my case, made yml file in db directory and named file  pref_data .    Default:\n  Pref:\n    loop: 3  and write following ruby code in seeds.rb.  Pokotarou.make(\"./db/pref_data.yml\")\n\nor \n\nPokotarou::V2.new(\"./db/pref_data.yml\").make  and execute following command  $ rails db:seed  prefecture data is registerd your db.\nLet's check with the following code.  # You have to get 3\nPref.all.count => 3",
+            "title": "Basic Usage"
+        },
+        {
+            "location": "/pokotarou_v2/",
+            "text": "Pokotarou::V2\n\n\nYou can be changed test data by using V2\n\n\nPokotarou::V2.new(\"./db/pref_data.yml\")\n             .change_loop(:Default, :Pref, 5)\n             .change_seed(:Default, :Pref, :name,  [\"a\", \"b\", \"c\"])\n             .make\n\n\n\n\nResult\n\n\nPref.all.count => 5\nPref.pluck(:name) => [\"a\", \"b\", \"c\", \"a\", \"b\"]",
+            "title": "Pokotarou v2"
+        },
+        {
+            "location": "/pokotarou_v2/#pokotarouv2",
+            "text": "You can be changed test data by using V2  Pokotarou::V2.new(\"./db/pref_data.yml\")\n             .change_loop(:Default, :Pref, 5)\n             .change_seed(:Default, :Pref, :name,  [\"a\", \"b\", \"c\"])\n             .make  Result  Pref.all.count => 5\nPref.pluck(:name) => [\"a\", \"b\", \"c\", \"a\", \"b\"]",
+            "title": "Pokotarou::V2"
+        },
+        {
+            "location": "/getting_started/",
+            "text": "Getting started\n\n\nPlease add this line to your Rails application's Gemfile\n\n\ngem 'pokotarou'\n\n\n\n\nAnd then run following commnad \n\n\n$ bundle install\n\n\n\n\nOr install it yourself as\n\n\n$ gem install pokotarou",
+            "title": "Getting started"
+        },
+        {
+            "location": "/getting_started/#getting-started",
+            "text": "Please add this line to your Rails application's Gemfile  gem 'pokotarou'  And then run following commnad   $ bundle install  Or install it yourself as  $ gem install pokotarou",
+            "title": "Getting started"
+        },
+        {
+            "location": "/lets_pokotarou/",
+            "text": "Let's Pokotarou\n\n\nBy the end of reading this document, you will be a pokotarou master...\n\n\nRegister seed data by yml\n\n\nIf you are troublesome to set columns data in yml.\n\nyou don't set columns data.\n\nPokotarou will register automatically prepared data.\n\n\nLet's see the following example!\n\n\nDefault:\n  Pref:\n    loop: 3\n\n\n\n\nThis yml file register automatically prepared data \nthree times\n.\n\n\nOffcourse, you can set seed data by yourself!\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: \"Hokkaido\"\n\n\n\n\nArray\n\n\nYou can set array data in yml.\n\nArray data is registerd one by one.\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nDon't worry if the array exceeds the number of loops.  \n\nCirculates automatically.\n\n\nDefault:\n  Pref:\n    loop: 6\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nResult\n\n\nPref.pluck(:name) =>  [\"Hokkaido\", \"Aomori\", \"Iwate\", \"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nMaked hash\n\n\n'maked' is bery userfule function.\nIt is hash and accumulate data registed in the past. \n\n\nFor example, in the case of below, reffer name of Pref in Default block by maked.\n\n\nDefault:\n  Pref:\n    loop: 2\n    col:\n      name: [\"Hokkaido\", \"Aomori\"]\n  Member:\n    loop: 2\n    col:\n      name: <maked[:Default][:Pref][:name]>\n\n\n\n\nmaked hash structure\n\n\n{\n  Block1:{\n    Model:{\n      col1:xxx,\n      col2:xxx\n      col3:xxx\n    }\n  },\n\n  Block2:{\n    Model:{\n      col1:xxx,\n      col2:xxx\n      col3:xxx\n    }\n  },\n}\n\n\n\n\nResult\n\n\nMember.pluck(:name) =>  [\"Hokkaido\", \"Aomori\"]\n\n\n\n\nMakedCol hash\n\n\n'maked_col' is like 'maked'\nbut you can write without 'block key'\nLet's look following example.\n\n\nDefault:\n  Pref:\n    loop: 2\n    col:\n      name: [\"Hokkaido\", \"Aomori\"]\n  Member:\n    loop: 2\n    col:\n      name: <maked_col[:Pref][:name]>\n\n\n\n\nmaked_col structure\n\n\n{\n  Model:{\n    col1:xxx(merged array from each blocks),\n    col2:xxx,\n    col3:xxx\n  }\n}\n\n\n\n\nResult\n\n\nMember.pluck(:name) =>  [\"Hokkaido\", \"Aomori\"]\n\n\n\n\nForeign key\n\n\n\u203b If you set association(belongs_to, has_many...), Pokotarou automatically register foreign keys\n\n{ F|Model } means that Model.pluck(:id).\nLet's see the following file. \n\nMember model record is registerd with pref_id(foregin key).\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n  Member:\n    loop: 3\n    col:\n      pref_id: F|Pref\n\n\n\n\nResult\n\n\nPref.pluck(:id) =>  [1, 2, 3]\nMember.pluck(:pref_id) => [1, 2, 3]\n\n\n\n\nSeeting Columns\n\n\nIf you want to register data from each model.\nyou can write following example.\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n  Member:\n    loop: 3\n    col:\n      pref_id: C|Pref|id\n      name: C|Pref|name\n\n\n\n\nResult\n\n\nPref.pluck(:id) =>  [1, 2, 3]\nMember.pluck(:pref_id) => [1, 2, 3]\nMember.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nRun ruby code in yml\n\n\n'< >' means expression expansion.\nYou can run ruby code in '< >'.\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: <[\"Hokkaido\", \"Aomori\", \"Iwate\"]>\n      created_at: <Date.parse('1997/02/05')>\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\nPref.pluck(:created_at) => [1997/02/05, 1997/02/05, 1997/02/05]\n\n\n\n\n\nImport(require ruby file in pokotarou)\n\n\nIf you want to require ruby file and add method which run in yml.\nYou can add method.\n\nLet's see the follwoing example.\n\n\nFirst, setting yml file.\n\nI want to run pref_name method.\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      # this is ruby method\n      name: <pref_name>\n\n\n\n\nsetting the following ruby file\n\n\ndef pref_name\n  [\"Hokkaido\", \"Aomori\", \"Iwate\"]\nend\n\n\n\n\nand run the following code in seeds.rb.\n\n\nPokotarou.import(\"./method_filepath\")\nPokotarou.make(\"./config_filepath\")\n\n\n\n\nor\n\n\nyou can also use array\n\n\nPokotarou.import([\"./method_filepath\"])\nPokotarou.make(\"./config_filepath\")\n\n\n\n\nPokotarou.import\n means that require which run in pokotarou.\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\n\nImport in yml\n\n\nYou can import in pokotarou yml file.\n\n\nimport':\n  - /method_filepath\n  - /method_filepath2\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      # you can use imported method\n      name: <pref_name>\n\n\n\n\nMultiple blocks\n\n\nDefault:\n  Pref:\n    loop: 3\nDefault2:\n  Pref:\n    loop: 3\n\n\n\n\nResult\n\n\nPref.all.count => 6\n\n\n\n\n\nand, You can change the name of the block\n\n\nHoge:\n  Pref:\n    loop: 3\nFuga:\n  Pref:\n    loop: 3\n\n\n\n\nResult\n\n\nPref.all.count => 6",
+            "title": "Lets pokotarou"
+        },
+        {
+            "location": "/lets_pokotarou/#lets-pokotarou",
+            "text": "By the end of reading this document, you will be a pokotarou master...",
+            "title": "Let's Pokotarou"
+        },
+        {
+            "location": "/lets_pokotarou/#register-seed-data-by-yml",
+            "text": "If you are troublesome to set columns data in yml. \nyou don't set columns data. \nPokotarou will register automatically prepared data.  Let's see the following example!  Default:\n  Pref:\n    loop: 3  This yml file register automatically prepared data  three times .  Offcourse, you can set seed data by yourself!  Default:\n  Pref:\n    loop: 3\n    col:\n      name: \"Hokkaido\"",
+            "title": "Register seed data by yml"
+        },
+        {
+            "location": "/lets_pokotarou/#array",
+            "text": "You can set array data in yml. \nArray data is registerd one by one.  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]  Result  Pref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]  Don't worry if the array exceeds the number of loops.   \nCirculates automatically.  Default:\n  Pref:\n    loop: 6\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]  Result  Pref.pluck(:name) =>  [\"Hokkaido\", \"Aomori\", \"Iwate\", \"Hokkaido\", \"Aomori\", \"Iwate\"]",
+            "title": "Array"
+        },
+        {
+            "location": "/lets_pokotarou/#maked-hash",
+            "text": "'maked' is bery userfule function.\nIt is hash and accumulate data registed in the past.   For example, in the case of below, reffer name of Pref in Default block by maked.  Default:\n  Pref:\n    loop: 2\n    col:\n      name: [\"Hokkaido\", \"Aomori\"]\n  Member:\n    loop: 2\n    col:\n      name: <maked[:Default][:Pref][:name]>  maked hash structure  {\n  Block1:{\n    Model:{\n      col1:xxx,\n      col2:xxx\n      col3:xxx\n    }\n  },\n\n  Block2:{\n    Model:{\n      col1:xxx,\n      col2:xxx\n      col3:xxx\n    }\n  },\n}  Result  Member.pluck(:name) =>  [\"Hokkaido\", \"Aomori\"]",
+            "title": "Maked hash"
+        },
+        {
+            "location": "/lets_pokotarou/#makedcol-hash",
+            "text": "'maked_col' is like 'maked'\nbut you can write without 'block key'\nLet's look following example.  Default:\n  Pref:\n    loop: 2\n    col:\n      name: [\"Hokkaido\", \"Aomori\"]\n  Member:\n    loop: 2\n    col:\n      name: <maked_col[:Pref][:name]>  maked_col structure  {\n  Model:{\n    col1:xxx(merged array from each blocks),\n    col2:xxx,\n    col3:xxx\n  }\n}  Result  Member.pluck(:name) =>  [\"Hokkaido\", \"Aomori\"]",
+            "title": "MakedCol hash"
+        },
+        {
+            "location": "/lets_pokotarou/#foreign-key",
+            "text": "\u203b If you set association(belongs_to, has_many...), Pokotarou automatically register foreign keys \n{ F|Model } means that Model.pluck(:id).\nLet's see the following file.  \nMember model record is registerd with pref_id(foregin key).  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n  Member:\n    loop: 3\n    col:\n      pref_id: F|Pref  Result  Pref.pluck(:id) =>  [1, 2, 3]\nMember.pluck(:pref_id) => [1, 2, 3]",
+            "title": "Foreign key"
+        },
+        {
+            "location": "/lets_pokotarou/#seeting-columns",
+            "text": "If you want to register data from each model.\nyou can write following example.  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n  Member:\n    loop: 3\n    col:\n      pref_id: C|Pref|id\n      name: C|Pref|name  Result  Pref.pluck(:id) =>  [1, 2, 3]\nMember.pluck(:pref_id) => [1, 2, 3]\nMember.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]",
+            "title": "Seeting Columns"
+        },
+        {
+            "location": "/lets_pokotarou/#run-ruby-code-in-yml",
+            "text": "'< >' means expression expansion.\nYou can run ruby code in '< >'.  Default:\n  Pref:\n    loop: 3\n    col:\n      name: <[\"Hokkaido\", \"Aomori\", \"Iwate\"]>\n      created_at: <Date.parse('1997/02/05')>  Result  Pref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\nPref.pluck(:created_at) => [1997/02/05, 1997/02/05, 1997/02/05]",
+            "title": "Run ruby code in yml"
+        },
+        {
+            "location": "/lets_pokotarou/#importrequire-ruby-file-in-pokotarou",
+            "text": "If you want to require ruby file and add method which run in yml.\nYou can add method. \nLet's see the follwoing example.  First, setting yml file. \nI want to run pref_name method.  Default:\n  Pref:\n    loop: 3\n    col:\n      # this is ruby method\n      name: <pref_name>  setting the following ruby file  def pref_name\n  [\"Hokkaido\", \"Aomori\", \"Iwate\"]\nend  and run the following code in seeds.rb.  Pokotarou.import(\"./method_filepath\")\nPokotarou.make(\"./config_filepath\")  or  you can also use array  Pokotarou.import([\"./method_filepath\"])\nPokotarou.make(\"./config_filepath\")  Pokotarou.import  means that require which run in pokotarou.  Result  Pref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]",
+            "title": "Import(require ruby file in pokotarou)"
+        },
+        {
+            "location": "/lets_pokotarou/#import-in-yml",
+            "text": "You can import in pokotarou yml file.  import':\n  - /method_filepath\n  - /method_filepath2\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      # you can use imported method\n      name: <pref_name>",
+            "title": "Import in yml"
+        },
+        {
+            "location": "/lets_pokotarou/#multiple-blocks",
+            "text": "Default:\n  Pref:\n    loop: 3\nDefault2:\n  Pref:\n    loop: 3  Result  Pref.all.count => 6  and, You can change the name of the block  Hoge:\n  Pref:\n    loop: 3\nFuga:\n  Pref:\n    loop: 3  Result  Pref.all.count => 6",
+            "title": "Multiple blocks"
+        },
+        {
+            "location": "/pokotarou_option/",
+            "text": "Pokotarou option\n\n\nOption is useful function.\nIf you can master it, it may be easier to create test data.\n\n\nRandom\n\n\nShuffle seed data when register.\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    # This is option\n    option:\n      name: [\"random\"]\n\n\n\n\nResult\n\n\n# The following results change from run to run\nPref.pluck(:name) => [\"Aomori\", \"Iwate\", \"Iwate\"]\n\n\n\n\nAdd identical numbers\n\n\nAdd identical numbers to seed data of String type\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    option:\n      name: [\"add_id\"]\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido_0\", \"Aomori_1\", \"Iwate_2\"]\n\n\n\n\nCombine serveral options\n\n\nCombination of options is possible\n\n\nDefault:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    option:\n      name: [\"add_id\", \"random\"]\n\n\n\n\nThe following results change from run to run\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido_0\", \"Iwate_1\", \"Hokkaido_2\"]",
+            "title": "Pokotarou option"
+        },
+        {
+            "location": "/pokotarou_option/#pokotarou-option",
+            "text": "Option is useful function.\nIf you can master it, it may be easier to create test data.",
+            "title": "Pokotarou option"
+        },
+        {
+            "location": "/pokotarou_option/#random",
+            "text": "Shuffle seed data when register.  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    # This is option\n    option:\n      name: [\"random\"]  Result  # The following results change from run to run\nPref.pluck(:name) => [\"Aomori\", \"Iwate\", \"Iwate\"]",
+            "title": "Random"
+        },
+        {
+            "location": "/pokotarou_option/#add-identical-numbers",
+            "text": "Add identical numbers to seed data of String type  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    option:\n      name: [\"add_id\"]  Result  Pref.pluck(:name) => [\"Hokkaido_0\", \"Aomori_1\", \"Iwate_2\"]",
+            "title": "Add identical numbers"
+        },
+        {
+            "location": "/pokotarou_option/#combine-serveral-options",
+            "text": "Combination of options is possible  Default:\n  Pref:\n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    option:\n      name: [\"add_id\", \"random\"]  The following results change from run to run  Result  Pref.pluck(:name) => [\"Hokkaido_0\", \"Iwate_1\", \"Hokkaido_2\"]",
+            "title": "Combine serveral options"
+        },
+        {
+            "location": "/pokotarou_handler/",
+            "text": "Pokotarou Handler\n\n\nIf you want to make test data dynamically, you should use \nPokotarouHandler\n.\n\n\nWhen you use \nPokotarouHandler\n, can update pokotarou's parameter  in ruby code.\n\n\nChange setting yml\n\n\nIn the following example, the number of loops is changed\n\n\n  handler = Pokotarou.gen_handler(\"./config_filepath\")\n  # change loop config\n  handler.change_loop(:Default, :Pref, 6)\n  handler.make\n\n\n\n\nIn the following example, seed data is changed\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # change seed data config number\n  handler.change_seed(:Default, :Pref, :name, [\"a\", \"b\", \"c\"])\n  handler.make\n\n\n\n\nDelete setting yml\n\n\nIn the following example, delete block config\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete model config in parameter\n  handler.delete_block(:Default)\n  handler.make\n\n\n\n\nIn the following example, delete model config\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete model config in parameter\n  handler.delete_model(:Default, :Pref)\n  handler.make\n\n\n\n\nIn the following example, delete col config\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete col config in parameter\n  handler.delete_col(:Default, :Pref, :name)\n  handler.make\n\n\n\n\nSet autoincrement\n\n\ncan change autoincrement status\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  handler.set_autoincrement(:Default, :Pref, :false)\n  handler.change_seed(:Default, :Pref, :id, [5, 6, 7])\n  handler.make\n\n\n\n\nSet randomincrement\n\n\ncan change randomincrement status\n\n\n  handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  handler.set_randomincrement(:Default, :Pref, :true)\n  handler.make",
+            "title": "Pokotarou handler"
+        },
+        {
+            "location": "/pokotarou_handler/#pokotarou-handler",
+            "text": "If you want to make test data dynamically, you should use  PokotarouHandler .  When you use  PokotarouHandler , can update pokotarou's parameter  in ruby code.",
+            "title": "Pokotarou Handler"
+        },
+        {
+            "location": "/pokotarou_handler/#change-setting-yml",
+            "text": "In the following example, the number of loops is changed    handler = Pokotarou.gen_handler(\"./config_filepath\")\n  # change loop config\n  handler.change_loop(:Default, :Pref, 6)\n  handler.make  In the following example, seed data is changed    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # change seed data config number\n  handler.change_seed(:Default, :Pref, :name, [\"a\", \"b\", \"c\"])\n  handler.make",
+            "title": "Change setting yml"
+        },
+        {
+            "location": "/pokotarou_handler/#delete-setting-yml",
+            "text": "In the following example, delete block config    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete model config in parameter\n  handler.delete_block(:Default)\n  handler.make  In the following example, delete model config    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete model config in parameter\n  handler.delete_model(:Default, :Pref)\n  handler.make  In the following example, delete col config    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  # delete col config in parameter\n  handler.delete_col(:Default, :Pref, :name)\n  handler.make",
+            "title": "Delete setting yml"
+        },
+        {
+            "location": "/pokotarou_handler/#set-autoincrement",
+            "text": "can change autoincrement status    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  handler.set_autoincrement(:Default, :Pref, :false)\n  handler.change_seed(:Default, :Pref, :id, [5, 6, 7])\n  handler.make",
+            "title": "Set autoincrement"
+        },
+        {
+            "location": "/pokotarou_handler/#set-randomincrement",
+            "text": "can change randomincrement status    handler = Pokotarou.gen_handler(\"./yml_filepath\")\n  handler.set_randomincrement(:Default, :Pref, :true)\n  handler.make",
+            "title": "Set randomincrement"
+        },
+        {
+            "location": "/converter/",
+            "text": "Converter\n\n\n\n\n\n\n\n\nconvert\n\n\ndescription\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nconvert val to empty\n\n\n\n\n\n\nnil\n\n\nconvert val to nil\n\n\n\n\n\n\nbig_text\n\n\nconvert val to big_text(\"text\" * 50)\n\n\n\n\n\n\nbr_text\n\n\nconvert val to br_text(\"text\\n\" * 5)\n\n\n\n\n\n\n\n\nFor example, following configfile register seed data while replacing with nil\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    convert:\n      name: [\"nil(0..2)\"]\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [nil, nil, nil]\n\n\n\n\na little complex version\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    convert:\n      name: [\"empty(0..0)\", \"nil(1..2)\"]\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"\", nil, nil]",
+            "title": "Converter"
+        },
+        {
+            "location": "/converter/#converter",
+            "text": "convert  description      empty  convert val to empty    nil  convert val to nil    big_text  convert val to big_text(\"text\" * 50)    br_text  convert val to br_text(\"text\\n\" * 5)     For example, following configfile register seed data while replacing with nil  Default:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    convert:\n      name: [\"nil(0..2)\"]  Result  Pref.pluck(:name) => [nil, nil, nil]  a little complex version  Default:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n    convert:\n      name: [\"empty(0..0)\", \"nil(1..2)\"]  Result  Pref.pluck(:name) => [\"\", nil, nil]",
+            "title": "Converter"
+        },
+        {
+            "location": "/advanced_setting/",
+            "text": "Advanced Setting\n\n\nGrouping\n\n\nGrouping is useful function.\nEspecially useful when setting multiple options.\n\n\nDefault:\n  Member:\n    grouping: \n      # set columns you want to group\n      str_g: [\"name\", \"remark\"]\n    col:\n      # you can use \"str_g\" at col\n      str_g: <['yarh!']>\n    option:\n      # also you can use \"str_g\" at option\n      str_g: [\"add_id\"]\n\n\n\n\n\nResult\n\n\nMember.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']\n\n\n\n\nPreset\n\n\nYou can set preset_path.\n\npreset-data can be created using this function.\n\n\n\u203b If you use this function, then You must use different block name in each yml file.\nCannot be used at the same time as the function of const', template' and import_path'.\n\n\npref.preset.yml\n\n\nPrefPreset:\n  Pref: \n    loop: 3\n    col:\n      name: [\"\u5317\u6d77\u9053\", \"\u9752\u68ee\u770c\", \"\u5ca9\u624b\u770c\"]\n\n\n\n\ntest_data.yml\n\n\npreset_path':\n  - ./pref.preset.yml\n\nDefault:\n  Member:\n    loop: 1\n    col:\n      pref_id: F|Pref\n      name: \"hoge\"\n\n\n\n\nResult\n\n\nPokotarou.make(\"./test_data.yml\")\nPref.pluck(:name) =>  [\"\u5317\u6d77\u9053\", \"\u9752\u68ee\u770c\", \"\u5ca9\u624b\u770c\"]\nMember.pluck(:name) =>  [\"hoge\"]\n\n\n\n\nTemplate\n\n\nYou can set template config by template' key.\n\n\nThis feature is similar to inheritance.\n\n\nThe template can be overwritten with the one set later.\n\n\ntemplate':\n  pref_template:\n    loop: 3\n    col:\n      pref_id: F|Pref\n      name: [\"hogeta\", \"fuga\", \"pokota\"]\nPref:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\nMember1:\n  Member:\n    template: pref_template\n\nMember2:\n  Member:\n    template: pref_template\n    col:\n      name: [\"hogeta2\", \"fuga2\", \"pokota2\"]\n\n\n\n\nResult\n\n\nMember.pluck(:name) =>  [\"hogeta\", \"fuga\", \"pokota\", \"hogeta2\", \"fuga2\", \"pokota2\"]\n\n\n\n\nYou can also set template by file path\n\n\ntemplate_file1 yml\n\n\nPrefTemplate:\n  loop: 3\n  col:\n    name: [\"hogeta\", \"fuga\", \"pokota\"]\n\n\n\n\ntemplate_file2 yml\n\n\nMemberTemplate:\n  loop: 3\n  col:\n    name: [\"t1\", \"t2\", \"t3\"]\n\n\n\n\nPokotarou yml\n\n\ntemplate_path':\n  - ./template_file1\n  - ./template_file2\nPref:\n  Pref: \n    template: PrefTemplate\n  Member:\n    template: MemberTemplate\n\n\n\n\nReturn\n\n\nYou can set return value by return' key.\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\nreturn': <maked[:Default][:Pref][:name]>\n\n\n\n\n\nResult\n\n\n return_val = Pokotarou.make(\"yml_filepath\")\n return_val => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nArgs\n\n\nYou can set args by hash.\n\n\nPokotarou.set_args({ name:  [\"Hokkaido\", \"Aomori\", \"Iwate\"] })\nPokotarou.make(\"yml_filepath\")\n\n\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: <args[:name]>\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\n\n\n\nConst\n\n\nYou can set const variables by const' key.\n\n\nconst':\n  name: \"hoge\"\nDefault:\n  Pref:\n    loop: 3\n  col:\n    name: <const[:name]>\n\n\n\n\nDisable Autoincrement\n\n\nYou can disable the autoincrement setting\nIf you disable the setting, you can register id data prepared by yourself\n\n\nDefault:\n  Pref:\n    loop: 3\n    autoincrement: false\n    col:\n      id: [100, 101, 102]\n\n\n\n\nResult\n\n\nPref.pluck(:id) =>  [100, 101, 102]\n\n\n\n\nEnable Randomincrement\n\n\nYou can enable the randomincrement setting\nthis mode shuffled autoincrement array, and register it.\n\n\nDefault:\n  Pref:\n    loop: 3\n    randomincrement: true\n\n\n\n\nResult\n\n\n# The following results change from run to run\nPref.order(:name).pluck(:id) =>  [3, 2, 1]",
+            "title": "Advanced setting"
+        },
+        {
+            "location": "/advanced_setting/#advanced-setting",
+            "text": "",
+            "title": "Advanced Setting"
+        },
+        {
+            "location": "/advanced_setting/#grouping",
+            "text": "Grouping is useful function.\nEspecially useful when setting multiple options.  Default:\n  Member:\n    grouping: \n      # set columns you want to group\n      str_g: [\"name\", \"remark\"]\n    col:\n      # you can use \"str_g\" at col\n      str_g: <['yarh!']>\n    option:\n      # also you can use \"str_g\" at option\n      str_g: [\"add_id\"]  Result  Member.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']",
+            "title": "Grouping"
+        },
+        {
+            "location": "/advanced_setting/#preset",
+            "text": "You can set preset_path. \npreset-data can be created using this function.  \u203b If you use this function, then You must use different block name in each yml file.\nCannot be used at the same time as the function of const', template' and import_path'.  pref.preset.yml  PrefPreset:\n  Pref: \n    loop: 3\n    col:\n      name: [\"\u5317\u6d77\u9053\", \"\u9752\u68ee\u770c\", \"\u5ca9\u624b\u770c\"]  test_data.yml  preset_path':\n  - ./pref.preset.yml\n\nDefault:\n  Member:\n    loop: 1\n    col:\n      pref_id: F|Pref\n      name: \"hoge\"  Result  Pokotarou.make(\"./test_data.yml\")\nPref.pluck(:name) =>  [\"\u5317\u6d77\u9053\", \"\u9752\u68ee\u770c\", \"\u5ca9\u624b\u770c\"]\nMember.pluck(:name) =>  [\"hoge\"]",
+            "title": "Preset"
+        },
+        {
+            "location": "/advanced_setting/#template",
+            "text": "You can set template config by template' key.  This feature is similar to inheritance.  The template can be overwritten with the one set later.  template':\n  pref_template:\n    loop: 3\n    col:\n      pref_id: F|Pref\n      name: [\"hogeta\", \"fuga\", \"pokota\"]\nPref:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\nMember1:\n  Member:\n    template: pref_template\n\nMember2:\n  Member:\n    template: pref_template\n    col:\n      name: [\"hogeta2\", \"fuga2\", \"pokota2\"]  Result  Member.pluck(:name) =>  [\"hogeta\", \"fuga\", \"pokota\", \"hogeta2\", \"fuga2\", \"pokota2\"]  You can also set template by file path  template_file1 yml  PrefTemplate:\n  loop: 3\n  col:\n    name: [\"hogeta\", \"fuga\", \"pokota\"]  template_file2 yml  MemberTemplate:\n  loop: 3\n  col:\n    name: [\"t1\", \"t2\", \"t3\"]  Pokotarou yml  template_path':\n  - ./template_file1\n  - ./template_file2\nPref:\n  Pref: \n    template: PrefTemplate\n  Member:\n    template: MemberTemplate",
+            "title": "Template"
+        },
+        {
+            "location": "/advanced_setting/#return",
+            "text": "You can set return value by return' key.  Default:\n  Pref: \n    loop: 3\n    col:\n      name: [\"Hokkaido\", \"Aomori\", \"Iwate\"]\n\nreturn': <maked[:Default][:Pref][:name]>  Result   return_val = Pokotarou.make(\"yml_filepath\")\n return_val => [\"Hokkaido\", \"Aomori\", \"Iwate\"]",
+            "title": "Return"
+        },
+        {
+            "location": "/advanced_setting/#args",
+            "text": "You can set args by hash.  Pokotarou.set_args({ name:  [\"Hokkaido\", \"Aomori\", \"Iwate\"] })\nPokotarou.make(\"yml_filepath\")  Default:\n  Pref: \n    loop: 3\n    col:\n      name: <args[:name]>  Result  Pref.pluck(:name) => [\"Hokkaido\", \"Aomori\", \"Iwate\"]",
+            "title": "Args"
+        },
+        {
+            "location": "/advanced_setting/#const",
+            "text": "You can set const variables by const' key.  const':\n  name: \"hoge\"\nDefault:\n  Pref:\n    loop: 3\n  col:\n    name: <const[:name]>",
+            "title": "Const"
+        },
+        {
+            "location": "/advanced_setting/#disable-autoincrement",
+            "text": "You can disable the autoincrement setting\nIf you disable the setting, you can register id data prepared by yourself  Default:\n  Pref:\n    loop: 3\n    autoincrement: false\n    col:\n      id: [100, 101, 102]  Result  Pref.pluck(:id) =>  [100, 101, 102]",
+            "title": "Disable Autoincrement"
+        },
+        {
+            "location": "/advanced_setting/#enable-randomincrement",
+            "text": "You can enable the randomincrement setting\nthis mode shuffled autoincrement array, and register it.  Default:\n  Pref:\n    loop: 3\n    randomincrement: true  Result  # The following results change from run to run\nPref.order(:name).pluck(:id) =>  [3, 2, 1]",
+            "title": "Enable Randomincrement"
+        },
+        {
+            "location": "/pipeline_execute/",
+            "text": "Pipeline execute\n\n\nPokotarou can run by pipeline.\n\nPokotarou.pipleine_execute means that continuous execution of \nPokotarou.make\n.\n\nYou can set filepath, change_data, args parameter.\n\n\nPokotarou.pipeline_execute([{\n    filepath: \"./yml_filepath\", \n    change_data: { Default: { Pref: { name: [\"a\", \"b\", \"c\"] } } },\n    args: { created_at: [DateTime.now] }\n  },{\n    filepath: \"./yml_filepath\", \n  }])\n\n\n\n\nreturn val created in the previous step can get by \nargs[:passed_return_val]\n in the next step.\n\n\n# First step\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: [\"a\", \"b\", \"c\"]\n\nreturn': <[\"hoge\", \"fuga\", \"piyo\"]>\n\n\n\n\n# Second step\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: <args[:passed_return_val]>\n\n\n\n\nPokotarou.pipeline_execute([{\n    filepath: \"./first_step_yml_filepath\", \n  },{\n    filepath: \"./second_step_yml_filepath\", \n  }])\n\n\n\n\nResult\n\n\nPref.pluck(:name) => [\"a\", \"b\", \"c\", \"hoge\", \"fuga\", \"piyo\"]",
+            "title": "Pipeline execute"
+        },
+        {
+            "location": "/pipeline_execute/#pipeline-execute",
+            "text": "Pokotarou can run by pipeline. \nPokotarou.pipleine_execute means that continuous execution of  Pokotarou.make . \nYou can set filepath, change_data, args parameter.  Pokotarou.pipeline_execute([{\n    filepath: \"./yml_filepath\", \n    change_data: { Default: { Pref: { name: [\"a\", \"b\", \"c\"] } } },\n    args: { created_at: [DateTime.now] }\n  },{\n    filepath: \"./yml_filepath\", \n  }])  return val created in the previous step can get by  args[:passed_return_val]  in the next step.  # First step\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: [\"a\", \"b\", \"c\"]\n\nreturn': <[\"hoge\", \"fuga\", \"piyo\"]>  # Second step\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: <args[:passed_return_val]>  Pokotarou.pipeline_execute([{\n    filepath: \"./first_step_yml_filepath\", \n  },{\n    filepath: \"./second_step_yml_filepath\", \n  }])  Result  Pref.pluck(:name) => [\"a\", \"b\", \"c\", \"hoge\", \"fuga\", \"piyo\"]",
+            "title": "Pipeline execute"
+        },
+        {
+            "location": "/p_tool/",
+            "text": "Ptool(Pokotarou tool)\n\n\nPtool is convinient seed data generater.\n\n\ngen_br_text\n\n\ngenerate following br_text.\n\n\n\"text\\ntext\"\n\n\n\n\n\n\n\n\n\n\nparam\n\n\ndescription\n\n\n\n\n\n\n\n\n\n\nnone\n\n\nnone\n\n\n\n\n\n\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      name: <Ptool.gen_br_text>\n\n\n\n\ngen_created_at\n\n\ngenerate created_at array.\n\n\n\n\n\n\n\n\nparam\n\n\ndescription\n\n\n\n\n\n\n\n\n\n\nn\n\n\ngenerate day number, if 7 then generate 7size array, default 7\n\n\n\n\n\n\ndatetime_str\n\n\nbegin datetime, default DateTime.now.to_s\n\n\n\n\n\n\nwith_random_time\n\n\nboolean, if true register with random_time, default false\n\n\n\n\n\n\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      created_at: <Ptool.gen_created_at(10, \"1997-02-05\", true)>\n\n\n\n\ngen_updated_at\n\n\ngenerate updated_at array.\n\n\n\n\n\n\n\n\nparam\n\n\ndescription\n\n\n\n\n\n\n\n\n\n\ncreated_arr\n\n\ndatetime array\n\n\n\n\n\n\nwith_random_time\n\n\nboolean, if true register with random_time, default false\n\n\n\n\n\n\n\n\nDefault:\n  Pref: \n    loop: 3\n    col:\n      created_at: <Ptool.gen_created_at(10, \"1997-02-05\", true)>\n      updated_at: <Ptool.gen_updated_at(maked_col[:Pref][:created_at], true)>",
+            "title": "P tool"
+        },
+        {
+            "location": "/p_tool/#ptoolpokotarou-tool",
+            "text": "Ptool is convinient seed data generater.",
+            "title": "Ptool(Pokotarou tool)"
+        },
+        {
+            "location": "/p_tool/#gen_br_text",
+            "text": "generate following br_text.  \"text\\ntext\"     param  description      none  none     Default:\n  Pref: \n    loop: 3\n    col:\n      name: <Ptool.gen_br_text>",
+            "title": "gen_br_text"
+        },
+        {
+            "location": "/p_tool/#gen_created_at",
+            "text": "generate created_at array.     param  description      n  generate day number, if 7 then generate 7size array, default 7    datetime_str  begin datetime, default DateTime.now.to_s    with_random_time  boolean, if true register with random_time, default false     Default:\n  Pref: \n    loop: 3\n    col:\n      created_at: <Ptool.gen_created_at(10, \"1997-02-05\", true)>",
+            "title": "gen_created_at"
+        },
+        {
+            "location": "/p_tool/#gen_updated_at",
+            "text": "generate updated_at array.     param  description      created_arr  datetime array    with_random_time  boolean, if true register with random_time, default false     Default:\n  Pref: \n    loop: 3\n    col:\n      created_at: <Ptool.gen_created_at(10, \"1997-02-05\", true)>\n      updated_at: <Ptool.gen_updated_at(maked_col[:Pref][:created_at], true)>",
+            "title": "gen_updated_at"
+        },
+        {
+            "location": "/license/",
+            "text": "License\n\n\nThe gem is available as open source under the terms of the \nMIT License\n.",
+            "title": "License"
+        },
+        {
+            "location": "/license/#license",
+            "text": "The gem is available as open source under the terms of the  MIT License .",
+            "title": "License"
+        }
+    ]
+}

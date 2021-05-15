@@ -13,19 +13,19 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../custom.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Pokotarou option";
     var mkdocs_page_input_path = "pokotarou_option.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/pokotarou_option/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +39,7 @@
         <a href=".." class="icon icon-home"> Pokotarou Docs</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -55,7 +55,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../basic_usage/">Basic Usage</a>
+    <a class="" href="../basic_usage/">Basic usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pokotarou_v2/">Pokotarou v2</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -65,7 +70,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../lets_pokotarou/">Let's Pokotarou</a>
+    <a class="" href="../lets_pokotarou/">Lets pokotarou</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -91,7 +96,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pokotarou_handler/">Pokotarou Handler</a>
+    <a class="" href="../pokotarou_handler/">Pokotarou handler</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -101,17 +106,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../advanced_setting/">Advanced Setting</a>
+    <a class="" href="../advanced_setting/">Advanced setting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../p_tool/">Ptool(Pokotarou tool)</a>
+    <a class="" href="../p_tool/">P tool</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -168,7 +173,7 @@ If you can master it, it may be easier to create test data.</p>
 
 <p><strong>Result</strong></p>
 <pre><code class="ruby"># The following results change from run to run
-Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&quot;]
+Pref.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="add-identical-numbers">Add identical numbers</h2>
@@ -183,7 +188,7 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Aomori_1&quot;, &quot;Iwate_2&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Aomori_1&quot;, &quot;Iwate_2&quot;]
 </code></pre>
 
 <h2 id="combine-serveral-options">Combine serveral options</h2>
@@ -199,7 +204,7 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
 
 <p>The following results change from run to run</p>
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Iwate_1&quot;, &quot;Hokkaido_2&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Iwate_1&quot;, &quot;Hokkaido_2&quot;]
 </code></pre>
               
             </div>
@@ -208,10 +213,10 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pokotarou_handler/" class="btn btn-neutral float-right" title="Pokotarou Handler">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pokotarou_handler/" class="btn btn-neutral float-right" title="Pokotarou handler">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../lets_pokotarou/" class="btn btn-neutral" title="Let's Pokotarou"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lets_pokotarou/" class="btn btn-neutral" title="Lets pokotarou"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -225,12 +230,12 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -244,9 +249,7 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
