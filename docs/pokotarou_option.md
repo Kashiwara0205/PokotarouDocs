@@ -19,7 +19,7 @@ Default:
 __Result__
 ```ruby
 # The following results change from run to run
-Pref.all.pluck(:name) => ["Aomori", "Iwate", "Iwate"]
+Pref.pluck(:name) => ["Aomori", "Iwate", "Iwate"]
 ```
 
 ## Add identical numbers 
@@ -36,7 +36,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido_0", "Aomori_1", "Iwate_2"]
+Pref.pluck(:name) => ["Hokkaido_0", "Aomori_1", "Iwate_2"]
 ```
 
 ## Combine serveral options
@@ -57,5 +57,5 @@ The following results change from run to run
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido_0", "Iwate_1", "Hokkaido_2"]
+Pref.pluck(:name) => ["Hokkaido_0", "Iwate_1", "Hokkaido_2"]
 ```

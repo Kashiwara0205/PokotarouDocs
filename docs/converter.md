@@ -21,7 +21,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => [nil, nil, nil]
+Pref.pluck(:name) => [nil, nil, nil]
 ```
 
 a little complex version
@@ -38,5 +38,5 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["", nil, nil]
+Pref.pluck(:name) => ["", nil, nil]
 ```

@@ -106,7 +106,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -168,7 +168,7 @@ If you can master it, it may be easier to create test data.</p>
 
 <p><strong>Result</strong></p>
 <pre><code class="ruby"># The following results change from run to run
-Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&quot;]
+Pref.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="add-identical-numbers">Add identical numbers</h2>
@@ -183,7 +183,7 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Aomori_1&quot;, &quot;Iwate_2&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Aomori_1&quot;, &quot;Iwate_2&quot;]
 </code></pre>
 
 <h2 id="combine-serveral-options">Combine serveral options</h2>
@@ -199,7 +199,7 @@ Pref.all.pluck(:name) =&gt; [&quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Iwate&
 
 <p>The following results change from run to run</p>
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Iwate_1&quot;, &quot;Hokkaido_2&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido_0&quot;, &quot;Iwate_1&quot;, &quot;Hokkaido_2&quot;]
 </code></pre>
               
             </div>

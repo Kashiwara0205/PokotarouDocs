@@ -32,10 +32,14 @@ Default:
 and write following ruby code in seeds.rb.
 
 ```ruby
-Pokotarou.execute("./db/pref_data.yml")
+Pokotarou.make("./db/pref_data.yml")
+
+or 
+
+Pokotarou::V2.new("./db/pref_data.yml").make
 ```
 
-and execute following command!!!!!  
+and execute following command
 
 ```bash
 $ rails db:seed

@@ -1,7 +1,7 @@
-# Pipeline Execute
+# Pipeline execute
 
 Pokotarou can run by pipeline.  
-Pokotarou.pipleine_execute means that continuous execution of __Pokotarou.execute__.  
+Pokotarou.pipleine_execute means that continuous execution of __Pokotarou.make__.  
 You can set filepath, change_data, args parameter.
 
 ```ruby
@@ -47,5 +47,5 @@ Pokotarou.pipeline_execute([{
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["a", "b", "c", "hoge", "fuga", "piyo"]
+Pref.pluck(:name) => ["a", "b", "c", "hoge", "fuga", "piyo"]
 ```

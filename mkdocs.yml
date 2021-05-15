@@ -1,8 +1,9 @@
 site_name: Pokotarou Docs
 theme: readthedocs
-nav:
+pages:
 - 'index.md'
 - 'basic_usage.md'
+- 'pokotarou_v2.md'
 - 'getting_started.md'
 - 'lets_pokotarou.md'
 - 'pokotarou_option.md'
@@ -12,3 +13,5 @@ nav:
 - 'pipeline_execute.md'
 - 'p_tool.md'
 - 'license.md'
+extra_css:
+  - custom.css

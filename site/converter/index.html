@@ -96,7 +96,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -179,7 +179,7 @@
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [nil, nil, nil]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [nil, nil, nil]
 </code></pre>
 
 <p>a little complex version</p>
@@ -193,7 +193,7 @@
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;&quot;, nil, nil]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;&quot;, nil, nil]
 </code></pre>
               
             </div>

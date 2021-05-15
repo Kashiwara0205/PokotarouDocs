@@ -116,7 +116,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -180,7 +180,7 @@ Especially useful when setting multiple options.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Member.all.pluck(:name) =&gt;  ['yarh!_0', 'yarh!_1', 'yarh!_2']
+<pre><code class="ruby">Member.pluck(:name) =&gt;  ['yarh!_0', 'yarh!_1', 'yarh!_2']
 </code></pre>
 
 <h2 id="preset">Preset</h2>
@@ -210,9 +210,9 @@ Default:
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pokotarou.execute(&quot;./test_data.yml&quot;)
-Pref.all.pluck(:name) =&gt;  [&quot;北海道&quot;, &quot;青森県&quot;, &quot;岩手県&quot;]
-Member.all.pluck(:name) =&gt;  [&quot;hoge&quot;]
+<pre><code class="ruby">Pokotarou.make(&quot;./test_data.yml&quot;)
+Pref.pluck(:name) =&gt;  [&quot;北海道&quot;, &quot;青森県&quot;, &quot;岩手県&quot;]
+Member.pluck(:name) =&gt;  [&quot;hoge&quot;]
 </code></pre>
 
 <h2 id="template">Template</h2>
@@ -243,7 +243,7 @@ Member2:
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;, &quot;hogeta2&quot;, &quot;fuga2&quot;, &quot;pokota2&quot;]
+<pre><code class="ruby">Member.pluck(:name) =&gt;  [&quot;hogeta&quot;, &quot;fuga&quot;, &quot;pokota&quot;, &quot;hogeta2&quot;, &quot;fuga2&quot;, &quot;pokota2&quot;]
 </code></pre>
 
 <p>You can also set template by file path</p>
@@ -285,14 +285,14 @@ return': &lt;maked[:Default][:Pref][:name]&gt;
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby"> return_val = Pokotarou.execute(&quot;yml_filepath&quot;)
+<pre><code class="ruby"> return_val = Pokotarou.make(&quot;yml_filepath&quot;)
  return_val =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="args">Args</h2>
 <p>You can set args by hash.</p>
 <pre><code class="ruby">Pokotarou.set_args({ name:  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;] })
-Pokotarou.execute(&quot;yml_filepath&quot;)
+Pokotarou.make(&quot;yml_filepath&quot;)
 </code></pre>
 
 <pre><code class="yml">Default:
@@ -303,7 +303,7 @@ Pokotarou.execute(&quot;yml_filepath&quot;)
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="const">Const</h2>
@@ -329,7 +329,7 @@ If you disable the setting, you can register id data prepared by yourself</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [100, 101, 102]
+<pre><code class="ruby">Pref.pluck(:id) =&gt;  [100, 101, 102]
 </code></pre>
 
 <h2 id="enable-randomincrement">Enable Randomincrement</h2>
@@ -352,7 +352,7 @@ Pref.order(:name).pluck(:id) =&gt;  [3, 2, 1]
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pipeline_execute/" class="btn btn-neutral float-right" title="Pipeline Execute">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pipeline_execute/" class="btn btn-neutral float-right" title="Pipeline execute">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../converter/" class="btn btn-neutral" title="Converter"><span class="icon icon-circle-arrow-left"></span> Previous</a>

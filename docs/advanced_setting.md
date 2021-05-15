@@ -22,7 +22,7 @@ Default:
 
 __Result__
 ```ruby
-Member.all.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']
+Member.pluck(:name) =>  ['yarh!_0', 'yarh!_1', 'yarh!_2']
 ```
 
 ## Preset
@@ -44,7 +44,6 @@ PrefPreset:
 
 test_data.yml
 ```yml
-
 preset_path':
   - ./pref.preset.yml
 
@@ -58,9 +57,9 @@ Default:
 
 __Result__
 ```ruby
-Pokotarou.execute("./test_data.yml")
-Pref.all.pluck(:name) =>  ["北海道", "青森県", "岩手県"]
-Member.all.pluck(:name) =>  ["hoge"]
+Pokotarou.make("./test_data.yml")
+Pref.pluck(:name) =>  ["北海道", "青森県", "岩手県"]
+Member.pluck(:name) =>  ["hoge"]
 ```
 
 
@@ -98,7 +97,7 @@ Member2:
 
 __Result__
 ```ruby
-Member.all.pluck(:name) =>  ["hogeta", "fuga", "pokota", "hogeta2", "fuga2", "pokota2"]
+Member.pluck(:name) =>  ["hogeta", "fuga", "pokota", "hogeta2", "fuga2", "pokota2"]
 ```
 
 You can also set template by file path
@@ -150,7 +149,7 @@ return': <maked[:Default][:Pref][:name]>
 
 __Result__
 ```ruby
- return_val = Pokotarou.execute("yml_filepath")
+ return_val = Pokotarou.make("yml_filepath")
  return_val => ["Hokkaido", "Aomori", "Iwate"]
 ```
 
@@ -160,7 +159,7 @@ You can set args by hash.
 
 ```ruby
 Pokotarou.set_args({ name:  ["Hokkaido", "Aomori", "Iwate"] })
-Pokotarou.execute("yml_filepath")
+Pokotarou.make("yml_filepath")
 ```
 
 ```yml
@@ -173,7 +172,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 ```
 
 ## Const
@@ -205,7 +204,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:id) =>  [100, 101, 102]
+Pref.pluck(:id) =>  [100, 101, 102]
 ```
 
 ## Enable Randomincrement

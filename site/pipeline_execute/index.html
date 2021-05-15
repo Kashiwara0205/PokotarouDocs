@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Pipeline Execute - Pokotarou Docs</title>
+  <title>Pipeline execute - Pokotarou Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Pipeline Execute";
+    var mkdocs_page_name = "Pipeline execute";
     var mkdocs_page_input_path = "pipeline_execute.md";
     var mkdocs_page_url = null;
   </script>
@@ -90,10 +90,10 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Pipeline Execute</a>
+    <a class="current" href="./">Pipeline execute</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#pipeline-execute">Pipeline Execute</a></li>
+    <li class="toctree-l2"><a href="#pipeline-execute">Pipeline execute</a></li>
     
 
     </ul>
@@ -131,7 +131,7 @@
     
       
     
-    <li>Pipeline Execute</li>
+    <li>Pipeline execute</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,9 +141,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="pipeline-execute">Pipeline Execute</h1>
+                <h1 id="pipeline-execute">Pipeline execute</h1>
 <p>Pokotarou can run by pipeline.<br />
-Pokotarou.pipleine_execute means that continuous execution of <strong>Pokotarou.execute</strong>.<br />
+Pokotarou.pipleine_execute means that continuous execution of <strong>Pokotarou.make</strong>.<br />
 You can set filepath, change_data, args parameter.</p>
 <pre><code class="ruby">Pokotarou.pipeline_execute([{
     filepath: &quot;./yml_filepath&quot;, 
@@ -181,7 +181,7 @@ Default:
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]
 </code></pre>
               
             </div>

@@ -120,7 +120,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pipeline_execute/">Pipeline Execute</a>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -197,7 +197,7 @@ Array data is registerd one by one.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <p>Don't worry if the array exceeds the number of loops.  <br />
@@ -210,7 +210,7 @@ Circulates automatically.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;, &quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="maked-hash">Maked hash</h2>
@@ -249,7 +249,7 @@ It is hash and accumulate data registed in the past. </p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+<pre><code class="ruby">Member.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
 </code></pre>
 
 <h2 id="makedcol-hash">MakedCol hash</h2>
@@ -278,12 +278,12 @@ Let's look following example.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Member.all.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
+<pre><code class="ruby">Member.pluck(:name) =&gt;  [&quot;Hokkaido&quot;, &quot;Aomori&quot;]
 </code></pre>
 
 <h2 id="foreign-key">Foreign key</h2>
 <p><strong>※ If you set association(belongs_to, has_many...), Pokotarou automatically register foreign keys</strong>
-{ F|Model } means that Model.all.pluck(:id).
+{ F|Model } means that Model.pluck(:id).
 Let's see the following file. <br />
 Member model record is registerd with pref_id(foregin key).</p>
 <pre><code class="yml">Default:
@@ -298,8 +298,8 @@ Member model record is registerd with pref_id(foregin key).</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [1, 2, 3]
-Member.all.pluck(:pref_id) =&gt; [1, 2, 3]
+<pre><code class="ruby">Pref.pluck(:id) =&gt;  [1, 2, 3]
+Member.pluck(:pref_id) =&gt; [1, 2, 3]
 </code></pre>
 
 <h2 id="seeting-columns">Seeting Columns</h2>
@@ -318,9 +318,9 @@ you can write following example.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:id) =&gt;  [1, 2, 3]
-Member.all.pluck(:pref_id) =&gt; [1, 2, 3]
-Member.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+<pre><code class="ruby">Pref.pluck(:id) =&gt;  [1, 2, 3]
+Member.pluck(:pref_id) =&gt; [1, 2, 3]
+Member.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 </code></pre>
 
 <h2 id="run-ruby-code-in-yml">Run ruby code in yml</h2>
@@ -335,8 +335,8 @@ You can run ruby code in '&lt; &gt;'.</p>
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
-Pref.all.pluck(:created_at) =&gt; [1997/02/05, 1997/02/05, 1997/02/05]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+Pref.pluck(:created_at) =&gt; [1997/02/05, 1997/02/05, 1997/02/05]
 
 </code></pre>
 
@@ -362,18 +362,18 @@ end
 
 <p>and run the following code in seeds.rb.</p>
 <pre><code class="ruby">Pokotarou.import(&quot;./method_filepath&quot;)
-Pokotarou.execute(&quot;./config_filepath&quot;)
+Pokotarou.make(&quot;./config_filepath&quot;)
 </code></pre>
 
 <p>or</p>
 <p>you can also use array</p>
 <pre><code class="ruby">Pokotarou.import([&quot;./method_filepath&quot;])
-Pokotarou.execute(&quot;./config_filepath&quot;)
+Pokotarou.make(&quot;./config_filepath&quot;)
 </code></pre>
 
 <p><strong>Pokotarou.import</strong> means that require which run in pokotarou.</p>
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.all.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
+<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;Hokkaido&quot;, &quot;Aomori&quot;, &quot;Iwate&quot;]
 
 </code></pre>
 

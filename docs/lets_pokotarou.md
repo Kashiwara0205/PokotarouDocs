@@ -44,7 +44,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 ```
 
 
@@ -61,7 +61,7 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) =>  ["Hokkaido", "Aomori", "Iwate", "Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:name) =>  ["Hokkaido", "Aomori", "Iwate", "Hokkaido", "Aomori", "Iwate"]
 ```
 
 ## Maked hash
@@ -106,7 +106,7 @@ __maked hash structure__
 
 __Result__
 ```ruby
-Member.all.pluck(:name) =>  ["Hokkaido", "Aomori"]
+Member.pluck(:name) =>  ["Hokkaido", "Aomori"]
 ```
 
 
@@ -143,14 +143,14 @@ __maked_col structure__
 
 __Result__
 ```ruby
-Member.all.pluck(:name) =>  ["Hokkaido", "Aomori"]
+Member.pluck(:name) =>  ["Hokkaido", "Aomori"]
 ```
 
 
 ## Foreign key
 
 __※ If you set association(belongs_to, has_many...), Pokotarou automatically register foreign keys__
-{ F|Model } means that Model.all.pluck(:id).
+{ F|Model } means that Model.pluck(:id).
 Let's see the following file.   
 Member model record is registerd with pref_id(foregin key).
 
@@ -168,8 +168,8 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:id) =>  [1, 2, 3]
-Member.all.pluck(:pref_id) => [1, 2, 3]
+Pref.pluck(:id) =>  [1, 2, 3]
+Member.pluck(:pref_id) => [1, 2, 3]
 ```
 ## Seeting Columns
 
@@ -191,9 +191,9 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:id) =>  [1, 2, 3]
-Member.all.pluck(:pref_id) => [1, 2, 3]
-Member.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:id) =>  [1, 2, 3]
+Member.pluck(:pref_id) => [1, 2, 3]
+Member.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 ```
 
 ## Run ruby code in yml
@@ -211,8 +211,8 @@ Default:
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
-Pref.all.pluck(:created_at) => [1997/02/05, 1997/02/05, 1997/02/05]
+Pref.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:created_at) => [1997/02/05, 1997/02/05, 1997/02/05]
 
 ```
 
@@ -245,7 +245,7 @@ and run the following code in seeds.rb.
 
 ```ruby
 Pokotarou.import("./method_filepath")
-Pokotarou.execute("./config_filepath")
+Pokotarou.make("./config_filepath")
 ```
 
 or
@@ -254,7 +254,7 @@ you can also use array
 
 ```ruby
 Pokotarou.import(["./method_filepath"])
-Pokotarou.execute("./config_filepath")
+Pokotarou.make("./config_filepath")
 ```
 
 
@@ -262,7 +262,7 @@ __Pokotarou.import__ means that require which run in pokotarou.
 
 __Result__
 ```ruby
-Pref.all.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
+Pref.pluck(:name) => ["Hokkaido", "Aomori", "Iwate"]
 
 ```
 
