@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Pipeline execute - Pokotarou Docs</title>
+  <title>Pokotarou v2 - Pokotarou Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Pipeline execute";
-    var mkdocs_page_input_path = "pipeline_execute.md";
-    var mkdocs_page_url = "/pipeline_execute/";
+    var mkdocs_page_name = "Pokotarou v2";
+    var mkdocs_page_input_path = "pokotarou_v2.md";
+    var mkdocs_page_url = "/pokotarou_v2/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -58,9 +58,15 @@
     <a class="" href="../basic_usage/">Basic usage</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../pokotarou_v2/">Pokotarou v2</a>
+    <a class="current" href="./">Pokotarou v2</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#pokotarouv2">Pokotarou::V2</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -93,15 +99,9 @@
     <a class="" href="../advanced_setting/">Advanced setting</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Pipeline execute</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#pipeline-execute">Pipeline execute</a></li>
-    
-
-    </ul>
+    <a class="" href="../pipeline_execute/">Pipeline execute</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -136,7 +136,7 @@
     
       
     
-    <li>Pipeline execute</li>
+    <li>Pokotarou v2</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,47 +146,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="pipeline-execute">Pipeline execute</h1>
-<p>Pokotarou can run by pipeline.<br />
-Pokotarou.pipleine_execute means that continuous execution of <strong>Pokotarou.make</strong>.<br />
-You can set filepath, change_data, args parameter.</p>
-<pre><code class="ruby">Pokotarou.pipeline_execute([{
-    filepath: &quot;./yml_filepath&quot;, 
-    change_data: { Default: { Pref: { name: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;] } } },
-    args: { created_at: [DateTime.now] }
-  },{
-    filepath: &quot;./yml_filepath&quot;, 
-  }])
-</code></pre>
-
-<p>return val created in the previous step can get by <strong>args[:passed_return_val]</strong> in the next step.</p>
-<pre><code class="yml"># First step
-Default:
-  Pref: 
-    loop: 3
-    col:
-      name: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-
-return': &lt;[&quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]&gt;
-</code></pre>
-
-<pre><code class="yml"># Second step
-Default:
-  Pref: 
-    loop: 3
-    col:
-      name: &lt;args[:passed_return_val]&gt;
-</code></pre>
-
-<pre><code class="ruby">Pokotarou.pipeline_execute([{
-    filepath: &quot;./first_step_yml_filepath&quot;, 
-  },{
-    filepath: &quot;./second_step_yml_filepath&quot;, 
-  }])
+                <h1 id="pokotarouv2">Pokotarou::V2</h1>
+<p>You can be changed test data by using V2</p>
+<pre><code class="ruby">Pokotarou::V2.new(&quot;./db/pref_data.yml&quot;)
+             .change_loop(:Default, :Pref, 5)
+             .change_seed(:Default, :Pref, :name,  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
+             .make
 </code></pre>
 
 <p><strong>Result</strong></p>
-<pre><code class="ruby">Pref.pluck(:name) =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;hoge&quot;, &quot;fuga&quot;, &quot;piyo&quot;]
+<pre><code class="ruby">Pref.count =&gt; 5
+Pref.pluck(:name) =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;]
 </code></pre>
               
             </div>
@@ -195,10 +165,10 @@ Default:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../p_tool/" class="btn btn-neutral float-right" title="P tool">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../advanced_setting/" class="btn btn-neutral" title="Advanced setting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../basic_usage/" class="btn btn-neutral" title="Basic usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -224,10 +194,10 @@ Default:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../advanced_setting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../basic_usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../p_tool/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

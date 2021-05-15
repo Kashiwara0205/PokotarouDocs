@@ -50,5 +50,5 @@ Let's check with the following code.
 
 ```ruby
 # You have to get 3
-Pref.all.count => 3
+Pref.count => 3
 ```

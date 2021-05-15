@@ -11,6 +11,6 @@ Pokotarou::V2.new("./db/pref_data.yml")
 
 __Result__
 ```ruby
-Pref.all.count => 5
+Pref.count => 5
 Pref.pluck(:name) => ["a", "b", "c", "a", "b"]
 ```

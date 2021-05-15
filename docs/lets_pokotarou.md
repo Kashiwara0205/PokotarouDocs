@@ -297,7 +297,7 @@ Default2:
 
 __Result__
 ```ruby
-Pref.all.count => 6
+Pref.count => 6
 
 ```
 
@@ -314,6 +314,6 @@ Fuga:
 
 __Result__
 ```ruby
-Pref.all.count => 6
+Pref.count => 6
 
 ```
